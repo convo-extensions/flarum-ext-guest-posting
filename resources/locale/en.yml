@@ -1,0 +1,16 @@
+guest-posting:
+    forum:
+        alert:
+            create-account: Create an account now and import your {count} posts!
+            signup: Sign Up
+        modal:
+            import: Import my {count} guest posts
+        badge:
+            guest: Guest
+
+    admin:
+        settings:
+            title: Guest Posting settings
+            enableImport: Enable importation of existing posts during registration
+            sessionLifetime: Guest session lifetime in hours
+            usernames: Random usernames used for guests
