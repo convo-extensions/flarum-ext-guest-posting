@@ -14,3 +14,8 @@ guest-posting:
             enableImport: Enable importation of existing posts during registration
             sessionLifetime: Guest session lifetime in hours
             usernames: Random usernames used for guests
+
+core:
+    lib:
+        username:
+            deleted_text: Guest
