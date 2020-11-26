@@ -23,3 +23,8 @@ There is no limit to the number of usernames, however the field is limited to 64
 - If approval is required, guests won't see their own post after publication
 - Guests cannot be mentioned
 - Homepage shows `[deleted]` as the author or last poster if it's a guest
+
+## Installation
+- Create a workbench folder
+- Add this to composer.json under `repositories`: `{"type": "path","url": "workbench/*"}`
+- Upload files and run `composer require alter/flarum-ext-guest-posting:*@dev`
