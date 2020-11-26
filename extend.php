@@ -4,6 +4,7 @@ namespace Alter\GuestPosting;
 
 use Flarum\Extend;
 use Flarum\Foundation\Application;
+use Illuminate\Contracts\Events\Dispatcher;
 
 return [
     (new Extend\Frontend('forum'))
@@ -23,9 +24,11 @@ return [
     (new Extend\Formatter)
         ->configure(ConfigureMentions::class),
 
-    function (Application $app) {
+    function (Application $app, Dispatcher $dispatcher) {
         $app->register(Providers\DiscussionPostAttribute::class);
         $app->register(Providers\RegisterUser::class);
         $app->register(Providers\SaveDiscussionPost::class);
+
+        $dispatcher->subscribe(Access\PostPolicy::class);
     },
 ];
