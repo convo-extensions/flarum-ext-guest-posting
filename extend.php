@@ -20,6 +20,9 @@ return [
     (new Extend\Middleware('api'))
         ->add(GuestSessionMiddleware::class),
 
+    (new Extend\Formatter)
+        ->configure(ConfigureMentions::class),
+
     function (Application $app) {
         $app->register(Providers\DiscussionPostAttribute::class);
         $app->register(Providers\RegisterUser::class);

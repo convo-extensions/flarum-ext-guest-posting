@@ -6,8 +6,6 @@ import listItems from 'flarum/helpers/listItems';
 
 /* global m */
 
-let temporarilyHidden = false;
-
 /**
  * Renders similarly to Flarum's Alert, but with an additional .container inside
  */

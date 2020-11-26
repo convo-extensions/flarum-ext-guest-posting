@@ -8,3 +8,5 @@ app.initializers.add('guest-posting', () => {
     enableGuestPosting();
     modifySignUpModal();
 });
+
+export * from './utils/textFormatter';
