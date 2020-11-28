@@ -28,4 +28,4 @@ There is no limit to the number of usernames, however the field is limited to 64
 - Create a workbench folder
 - Add this to composer.json under `repositories`: `{"type": "path","url": "workbench/*"}`
 - Upload files and run `composer require alter/flarum-ext-guest-posting:*@dev`
-- If there's an issue with the polls extension, run `composer require reflar/polls:^0.1.4`
+- If there's an issue with the polls extension, run `composer require fof/polls:^0.1.4`
