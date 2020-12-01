@@ -47,6 +47,9 @@ class RegisterUser extends AbstractServiceProvider
                 if ($count = GuestManager::postCount()) {
                     $event->attributes['guestPostCount'] = $count;
                 }
+                if ($count = GuestManager::voteCount()) {
+                    $event->attributes['guestVoteCount'] = $count;
+                }
             }
         }
     }

@@ -26,6 +26,7 @@ return [
 
     function (Application $app, Dispatcher $dispatcher) {
         $app->register(Providers\DiscussionPostAttribute::class);
+        $app->register(Providers\PollAttributes::class);
         $app->register(Providers\RegisterUser::class);
         $app->register(Providers\SaveDiscussionPost::class);
 

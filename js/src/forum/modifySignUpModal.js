@@ -10,7 +10,7 @@ export default function () {
     });
 
     extend(SignUpModal.prototype, 'fields', function (items) {
-        if (!app.forum.attribute('guestPostCount')) {
+        if (!app.forum.attribute('guestPostCount') && !app.forum.attribute('guestVoteCount')) {
             return;
         }
 
@@ -23,7 +23,10 @@ export default function () {
                 },
                 disabled: this.loading,
             }),
-            app.translator.trans('guest-posting.forum.modal.import', {
+            app.forum.attribute('guestVoteCount') ? app.translator.trans('guest-posting.forum.modal.import-votes', {
+                postCount: app.forum.attribute('guestPostCount') || '0',
+                voteCount: app.forum.attribute('guestVoteCount'),
+            }) : app.translator.trans('guest-posting.forum.modal.import', {
                 count: app.forum.attribute('guestPostCount'),
             }),
         ]))));

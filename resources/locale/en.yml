@@ -2,9 +2,12 @@ guest-posting:
     forum:
         alert:
             create-account: Create an account now and import your {count} posts!
+            create-account-votes-only: Create an account now and import your {count} votes!
+            create-account-posts-and-votes: Create an account now and import your {postCount} posts and {voteCount} votes!
             signup: Sign Up
         modal:
             import: Import my {count} guest posts
+            import-votes: Import my {postCount} guest posts and {voteCount} votes
         badge:
             guest: Guest
 

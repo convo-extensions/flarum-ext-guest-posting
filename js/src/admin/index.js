@@ -22,5 +22,6 @@ app.initializers.add('guest-posting', () => {
     extend(PermissionGrid.prototype, 'replyItems', items => {
         allowGuest(items, 'reply');
         allowGuest(items, 'replyWithoutApproval');
+        allowGuest(items, 'fof-polls-vote');
     });
 });
