@@ -12,7 +12,7 @@ function allowGuest(items, key) {
 }
 
 app.initializers.add('guest-posting', () => {
-    app.extensionSettings['alter-guest-posting'] = () => app.modal.show(new SettingsModal);
+    app.extensionSettings['kilowhat-guest-posting'] = () => app.modal.show(new SettingsModal);
 
     extend(PermissionGrid.prototype, 'startItems', items => {
         allowGuest(items, 'start');

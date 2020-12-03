@@ -1,5 +1,5 @@
 {
-    "name": "@alter/flarum-ext-guest-posting",
+    "name": "@kilowhat/guest-posting",
     "version": "0.0.0",
     "private": true,
     "dependencies": {

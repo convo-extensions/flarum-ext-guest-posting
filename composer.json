@@ -1,5 +1,5 @@
 {
-    "name": "alter/flarum-ext-guest-posting",
+    "name": "kilowhat/flarum-ext-guest-posting",
     "description": "Enable guest posting",
     "keywords": [
         "flarum"
