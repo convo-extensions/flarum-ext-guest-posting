@@ -5,7 +5,7 @@ import SignUpModal from 'flarum/components/SignUpModal';
 /* global m */
 
 export default function () {
-    extend(SignUpModal.prototype, 'init', function () {
+    extend(SignUpModal.prototype, 'oninit', function () {
         this.importGuestContent = !!app.forum.attribute('guestPostCount');
     });
 

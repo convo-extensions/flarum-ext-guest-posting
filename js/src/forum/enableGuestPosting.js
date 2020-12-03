@@ -13,23 +13,21 @@ export default function () {
     override(DiscussionControls, 'replyAction', function (original, goToLast, forceRefresh) {
         if (!app.session.user && this.canReply()) {
             // Code copied from DiscussionControls.replyAction
-            let component = app.composer.component;
-            if (!app.composingReplyTo(this) || forceRefresh) {
-                component = new ReplyComposer({
-                    user: app.session.user,
-                    discussion: this,
-                });
-                app.composer.load(component);
-            }
-            app.composer.show();
+            return new Promise(resolve => {
+                if (!app.composer.composingReplyTo(this) || forceRefresh) {
+                    app.composer.load(ReplyComposer, {
+                        user: app.session.user,
+                        discussion: this,
+                    });
+                }
+                app.composer.show();
 
-            if (goToLast && app.viewingDiscussion(this) && !app.composer.isFullScreen()) {
-                app.current.stream.goToNumber('reply');
-            }
+                if (goToLast && app.viewingDiscussion(this) && !app.composer.isFullScreen()) {
+                    app.current.get('stream').goToNumber('reply');
+                }
 
-            const deferred = m.deferred();
-            deferred.resolve(component);
-            return deferred.promise;
+                return resolve(app.composer);
+            });
         }
 
         return original(goToLast, forceRefresh);
@@ -38,21 +36,19 @@ export default function () {
     override(IndexPage.prototype, 'newDiscussionAction', function (original) {
         if (!app.session.user && app.forum.attribute('canStartDiscussion')) {
             // Code copied from IndexPage.newDiscussionAction
-            const component = new DiscussionComposer({user: app.session.user});
+            return new Promise(resolve => {
+                app.composer.load(DiscussionComposer, {user: app.session.user});
+                app.composer.show();
 
-            app.composer.load(component);
-            app.composer.show();
-
-            const deferred = m.deferred();
-            deferred.resolve(component);
-            return deferred.promise;
+                return resolve(app.composer);
+            });
         }
 
         return original();
     });
 
     extend(CommentPost.prototype, 'headerItems', function (items) {
-        const guestUsername = this.props.post.attribute('guest_username');
+        const guestUsername = this.attrs.post.attribute('guest_username');
 
         if (!guestUsername) {
             return;

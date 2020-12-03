@@ -34,7 +34,7 @@ export default class CreateAccountAlert extends Component {
                 Button.component({
                     className: 'Button Button--link',
                     onclick: () => {
-                        app.modal.show(new SignUpModal);
+                        app.modal.show(SignUpModal);
                     },
                 }, app.translator.trans('guest-posting.forum.alert.signup')),
             ])),

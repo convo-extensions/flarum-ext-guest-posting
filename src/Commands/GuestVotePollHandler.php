@@ -58,7 +58,7 @@ class GuestVotePollHandler
                 'option_id' => $optionId,
             ]);
 
-            app('events')->fire(new PollWasVoted($actor, $poll, $vote, $vote !== null));
+            app('events')->dispatch(new PollWasVoted($actor, $poll, $vote, $vote !== null));
 
             $original = app(VotePollHandler::class);
             $original->pushNewVote($vote);
