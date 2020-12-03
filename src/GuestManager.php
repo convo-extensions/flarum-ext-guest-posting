@@ -153,6 +153,10 @@ class GuestManager
             }
         }
 
+        $user->refreshDiscussionCount();
+        $user->refreshCommentCount();
+        $user->save();
+
         // We clear the data so the posts can't be moved to another account
         // We don't clear the username, it's not worth the complexity
         // We can leave the guest session expire together with the remembered guest username
