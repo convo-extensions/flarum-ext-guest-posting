@@ -20,7 +20,7 @@ class ConfigureMentions
             // It's important we run AFTER the original, because the javascript filter needs to override the displayname from the original
             // We can't insert at the end of the filterChain because TextFormatter never runs it on PHP side
             ->insert(1, [static::class, 'addPostId'])
-            ->setJS('function(tag) { return flarum.extensions["alter-guest-posting"].filterPostMentions(tag); }');
+            ->setJS('function(tag) { return flarum.extensions["kilowhat-guest-posting"].filterPostMentions(tag); }');
     }
 
     public static function addPostId($tag)
