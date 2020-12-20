@@ -27,6 +27,8 @@ There is no limit to the number of usernames, however the field is limited to 64
 ## Installation
 
 - Create a workbench folder
-- Add this to composer.json under `repositories`: `{"type": "path","url": "workbench/*"}`
+- Add this to composer.json: `"repositories": [{"type": "composer", "url": "https://extiverse.com/composer/"}]`
+- Add extiverse token
 - Upload files and run `composer require kilowhat/flarum-ext-guest-posting:*@dev`
 - If there's an issue with the polls extension, run `composer require fof/polls:^0.1.5`
+
