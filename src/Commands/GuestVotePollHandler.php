@@ -3,7 +3,6 @@
 namespace Alter\GuestPosting\Commands;
 
 use Alter\GuestPosting\GuestManager;
-use Flarum\User\AssertPermissionTrait;
 use Flarum\User\Exception\PermissionDeniedException;
 use FoF\Polls\Commands\VotePoll;
 use FoF\Polls\Commands\VotePollHandler;
@@ -14,8 +13,6 @@ use Illuminate\Support\Arr;
 
 class GuestVotePollHandler
 {
-    use AssertPermissionTrait;
-
     public function handle($command, $next)
     {
         // Do not try to override other commands
@@ -27,7 +24,7 @@ class GuestVotePollHandler
 
         // Protects against guest voting if not enabled
         // By placing it before isGuest check, it fixes https://github.com/FriendsOfFlarum/polls/issues/28
-        $this->assertCan($actor, 'votePolls');
+        $actor->assertCan('votePolls');
 
         // If it's not a guest situation, let the original command handle the logic
         if (!$actor->isGuest()) {
