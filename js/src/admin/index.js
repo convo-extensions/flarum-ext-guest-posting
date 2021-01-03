@@ -32,4 +32,4 @@ app.initializers.add('guest-posting', () => {
         allowGuest(items, 'votePolls');
         allowGuest(items, 'fof-recaptcha.postWithoutCaptcha');
     });
-});
+}, -100);
