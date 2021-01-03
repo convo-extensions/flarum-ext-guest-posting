@@ -17,11 +17,19 @@ app.initializers.add('guest-posting', () => {
     extend(PermissionGrid.prototype, 'startItems', items => {
         allowGuest(items, 'start');
         allowGuest(items, 'startDiscussionsWithoutApproval');
+
+        // On beta 15 key is always permission name
+        allowGuest(items, 'discussion.startWithoutApproval');
     });
 
     extend(PermissionGrid.prototype, 'replyItems', items => {
         allowGuest(items, 'reply');
         allowGuest(items, 'replyWithoutApproval');
         allowGuest(items, 'fof-polls-vote');
+
+        // On beta 15 key is always permission name
+        allowGuest(items, 'discussion.replyWithoutApproval');
+        allowGuest(items, 'votePolls');
+        allowGuest(items, 'fof-recaptcha.postWithoutCaptcha');
     });
 });
