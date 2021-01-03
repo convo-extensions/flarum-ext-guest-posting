@@ -29,6 +29,7 @@ return [
         $app->register(Providers\PollAttributes::class);
         $app->register(Providers\RegisterUser::class);
         $app->register(Providers\SaveDiscussionPost::class);
+        $app->register(Providers\UserMetadataUpdaterWorkaround::class);
 
         $dispatcher->subscribe(Access\PostPolicy::class);
     },
