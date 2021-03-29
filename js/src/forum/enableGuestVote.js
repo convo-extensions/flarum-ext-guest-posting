@@ -1,5 +1,7 @@
-import {extend, override} from 'flarum/extend';
+import {extend, override} from 'flarum/common/extend';
 import app from 'flarum/app';
+
+/* global flarum */
 
 export default function () {
     if (

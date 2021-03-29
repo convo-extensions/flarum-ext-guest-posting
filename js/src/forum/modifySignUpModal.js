@@ -1,6 +1,6 @@
-import {extend} from 'flarum/extend';
+import {extend} from 'flarum/common/extend';
 import app from 'flarum/app';
-import SignUpModal from 'flarum/components/SignUpModal';
+import SignUpModal from 'flarum/forum/components/SignUpModal';
 
 /* global m */
 

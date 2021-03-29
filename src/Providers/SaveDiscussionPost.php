@@ -13,10 +13,10 @@ class SaveDiscussionPost extends AbstractServiceProvider
 {
     public function register()
     {
-        $this->app['events']->listen(SavingDiscussion::class, [$this, 'savingDiscussion']);
-        $this->app['events']->listen(Started::class, [$this, 'savedDiscussion']);
-        $this->app['events']->listen(SavingPost::class, [$this, 'savingPost']);
-        $this->app['events']->listen(Posted::class, [$this, 'savedPost']);
+        $this->container['events']->listen(SavingDiscussion::class, [$this, 'savingDiscussion']);
+        $this->container['events']->listen(Started::class, [$this, 'savedDiscussion']);
+        $this->container['events']->listen(SavingPost::class, [$this, 'savingPost']);
+        $this->container['events']->listen(Posted::class, [$this, 'savedPost']);
     }
 
     public function savingDiscussion(SavingDiscussion $event)

@@ -55,7 +55,7 @@ class GuestManager
             /**
              * @var $settings SettingsRepositoryInterface
              */
-            $settings = app(SettingsRepositoryInterface::class);
+            $settings = resolve(SettingsRepositoryInterface::class);
 
             self::$username = Arr::random(explode("\n", $settings->get('guest-posting.usernames', '')));
             self::$dirty = true;

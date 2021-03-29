@@ -1,8 +1,8 @@
 import app from 'flarum/app';
-import Component from 'flarum/Component';
-import Button from 'flarum/components/Button';
-import SignUpModal from 'flarum/components/SignUpModal';
-import listItems from 'flarum/helpers/listItems';
+import Component from 'flarum/common/Component';
+import Button from 'flarum/common/components/Button';
+import SignUpModal from 'flarum/forum/components/SignUpModal';
+import listItems from 'flarum/common/helpers/listItems';
 
 /* global m */
 

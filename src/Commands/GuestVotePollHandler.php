@@ -55,9 +55,9 @@ class GuestVotePollHandler
                 'option_id' => $optionId,
             ]);
 
-            app('events')->dispatch(new PollWasVoted($actor, $poll, $vote, $vote !== null));
+            resolve('events')->dispatch(new PollWasVoted($actor, $poll, $vote, $vote !== null));
 
-            $original = app(VotePollHandler::class);
+            $original = resolve(VotePollHandler::class);
             $original->pushNewVote($vote);
 
             // We don't actually need a username for this feature, but getting a username is what starts a guest session

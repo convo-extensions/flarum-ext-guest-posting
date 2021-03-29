@@ -3,13 +3,11 @@
 namespace Alter\GuestPosting\Access;
 
 use Flarum\Post\Post;
-use Flarum\User\AbstractPolicy;
+use Flarum\User\Access\AbstractPolicy;
 use Flarum\User\User;
 
 class PostPolicy extends AbstractPolicy
 {
-    protected $model = Post::class;
-
     public function edit(User $actor, Post $post)
     {
         // Flarum's default policy is based on $actor->can('reply') together with user id null == 0 which messes up with the Guest posting

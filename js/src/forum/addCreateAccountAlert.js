@@ -1,7 +1,7 @@
-import {override} from 'flarum/extend';
+import {override} from 'flarum/common/extend';
 import app from 'flarum/app';
-import IndexPage from 'flarum/components/IndexPage';
-import DiscussionPage from 'flarum/components/DiscussionPage';
+import IndexPage from 'flarum/forum/components/IndexPage';
+import DiscussionPage from 'flarum/forum/components/DiscussionPage';
 import CreateAccountAlert from './components/CreateAccountAlert';
 
 /* global m */

@@ -47,7 +47,7 @@ class GuestSessionMiddleware implements MiddlewareInterface
             /**
              * @var $settings SettingsRepositoryInterface
              */
-            $settings = app(SettingsRepositoryInterface::class);
+            $settings = resolve(SettingsRepositoryInterface::class);
 
             return FigResponseCookies::set(
                 $response,

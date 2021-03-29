@@ -1,11 +1,16 @@
-import {extend, override} from 'flarum/extend';
+import {extend, override} from 'flarum/common/extend';
 import app from 'flarum/app';
-import Badge from 'flarum/components/Badge';
-import CommentPost from 'flarum/components/CommentPost';
-import IndexPage from 'flarum/components/IndexPage';
-import DiscussionComposer from 'flarum/components/DiscussionComposer';
-import ReplyComposer from 'flarum/components/ReplyComposer';
-import DiscussionControls from 'flarum/utils/DiscussionControls';
+import Badge from 'flarum/common/components/Badge';
+import CommentPost from 'flarum/forum/components/CommentPost';
+import IndexPage from 'flarum/forum/components/IndexPage';
+import DiscussionComposer from 'flarum/forum/components/DiscussionComposer';
+import ReplyComposer from 'flarum/forum/components/ReplyComposer';
+import DiscussionControls from 'flarum/forum/utils/DiscussionControls';
+import ReplyPlaceholder from 'flarum/forum/components/ReplyPlaceholder';
+import listItems from 'flarum/common/helpers/listItems';
+import avatar from 'flarum/common/helpers/avatar';
+import username from 'flarum/common/helpers/username';
+import ComposerPostPreview from 'flarum/forum/components/ComposerPostPreview';
 
 /* global m */
 
@@ -69,5 +74,27 @@ export default function () {
                 label: app.translator.trans('guest-posting.forum.badge.guest'),
             }))),
         ]), 100);
+    });
+
+    // Fix Flarum trying to loop over the guest's badges
+    override(ReplyPlaceholder.prototype, 'view', function () {
+        if (app.composer.composingReplyTo(this.attrs.discussion)) {
+            return (
+                <article className="Post CommentPost editing">
+                    <header className="Post-header">
+                        <div className="PostUser">
+                            <h3>
+                                {avatar(app.session.user, {className: 'PostUser-avatar'})}
+                                {username(app.session.user)}
+                            </h3>
+                            {app.session.user ?
+                                <ul className="PostUser-badges badges">{listItems(app.session.user.badges().toArray())}</ul> : null}
+                        </div>
+                    </header>
+                    <ComposerPostPreview className="Post-body" composer={app.composer}
+                                         surround={this.anchorPreview.bind(this)}/>
+                </article>
+            );
+        }
     });
 }
