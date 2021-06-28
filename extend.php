@@ -28,7 +28,8 @@ return [
         ->add(GuestSessionMiddleware::class),
 
     (new Extend\Formatter)
-        ->configure(ConfigureMentions::class),
+        ->configure(Formatter\ConfigureMentions::class)
+        ->render(Formatter\FormatPostMentions::class),
 
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(ForumAttributes::class),

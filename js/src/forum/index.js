@@ -1,4 +1,4 @@
-import app from 'flarum/app';
+import app from 'flarum/forum/app';
 import addCreateAccountAlert from './addCreateAccountAlert';
 import enableGuestPosting from './enableGuestPosting';
 import enableGuestVote from './enableGuestVote';

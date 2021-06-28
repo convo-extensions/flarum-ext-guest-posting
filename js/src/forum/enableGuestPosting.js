@@ -1,5 +1,5 @@
 import {extend, override} from 'flarum/common/extend';
-import app from 'flarum/app';
+import app from 'flarum/forum/app';
 import Badge from 'flarum/common/components/Badge';
 import CommentPost from 'flarum/forum/components/CommentPost';
 import IndexPage from 'flarum/forum/components/IndexPage';
@@ -77,7 +77,7 @@ export default function () {
     });
 
     // Fix Flarum trying to loop over the guest's badges
-    override(ReplyPlaceholder.prototype, 'view', function () {
+    override(ReplyPlaceholder.prototype, 'view', function (original, ...args) {
         if (app.composer.composingReplyTo(this.attrs.discussion)) {
             return (
                 <article className="Post CommentPost editing">
@@ -96,5 +96,7 @@ export default function () {
                 </article>
             );
         }
+
+        return original(...args);
     });
 }

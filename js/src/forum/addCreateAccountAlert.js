@@ -1,5 +1,5 @@
 import {override} from 'flarum/common/extend';
-import app from 'flarum/app';
+import app from 'flarum/forum/app';
 import IndexPage from 'flarum/forum/components/IndexPage';
 import DiscussionPage from 'flarum/forum/components/DiscussionPage';
 import CreateAccountAlert from './components/CreateAccountAlert';

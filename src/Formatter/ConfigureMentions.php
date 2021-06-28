@@ -1,6 +1,6 @@
 <?php
 
-namespace Alter\GuestPosting;
+namespace Alter\GuestPosting\Formatter;
 
 use Flarum\Post\CommentPost;
 use s9e\TextFormatter\Configurator;

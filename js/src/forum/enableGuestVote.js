@@ -1,5 +1,5 @@
 import {extend, override} from 'flarum/common/extend';
-import app from 'flarum/app';
+import app from 'flarum/forum/app';
 
 /* global flarum */
 
@@ -30,8 +30,21 @@ export default function () {
             return;
         }
 
-        this.vote(this.votes.find(v => v.user() === false && parseInt(v.optionId()) === parseInt(this.poll.attribute('guestVoteOption'))));
+        const optionId = this.poll.attribute('guestVoteOption');
 
-        this.voted(!!this.vote());
+        // Instead of poll.myVotes(), we will simulate votes from the guestVoteOption attribute
+        // This is easier than trying to gake the relationship in the backend
+        this.myVotes = optionId ? [app.store.createRecord('poll_votes', {
+            id: '0', // Not actually used, this model is never used from the store
+            type: 'poll_votes',
+            relationships: {
+                option: {
+                    data: {
+                        id: optionId,
+                        type: 'poll_options',
+                    },
+                },
+            },
+        })] : [];
     });
 }

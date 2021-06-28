@@ -1,6 +1,7 @@
 import {extend} from 'flarum/common/extend';
-import app from 'flarum/app';
+import app from 'flarum/admin/app';
 import PermissionGrid from 'flarum/admin/components/PermissionGrid';
+import ExtensionPermissionGrid from 'flarum/admin/components/ExtensionPermissionGrid';
 
 /* global m */
 
@@ -44,15 +45,24 @@ app.initializers.add('guest-posting', () => {
             ]);
         });
 
-    extend(PermissionGrid.prototype, 'startItems', items => {
+    function extendStartItems(items) {
         allowGuest(items, 'start');
         allowGuest(items, 'discussion.startWithoutApproval');
-    });
+    }
 
-    extend(PermissionGrid.prototype, 'replyItems', items => {
+    // We need to extend both PermissionGrid and ExtensionPermissionGrid
+    // if we want the changes to apply both on the Permissions page and the individual extension pages
+    extend(PermissionGrid.prototype, 'startItems', extendStartItems);
+    extend(ExtensionPermissionGrid.prototype, 'startItems', extendStartItems);
+
+    function extendReplyItems(items) {
         allowGuest(items, 'reply');
         allowGuest(items, 'discussion.replyWithoutApproval');
         allowGuest(items, 'votePolls');
+        allowGuest(items, 'changeVotePolls');
         allowGuest(items, 'fof-recaptcha.postWithoutCaptcha');
-    });
+    }
+
+    extend(PermissionGrid.prototype, 'replyItems', extendReplyItems);
+    extend(ExtensionPermissionGrid.prototype, 'replyItems', extendReplyItems);
 }, -100);
