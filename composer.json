@@ -1,11 +1,11 @@
 {
-    "name": "kilowhat/flarum-ext-guest-posting",
-    "description": "Enable guest posting",
+    "name": "convo-extensions/flarum-ext-guest-posting",
+    "description": "Anonymous, permission-based guest posting extension for Flarum",
     "keywords": [
         "flarum"
     ],
     "type": "flarum-extension",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "flarum/core": "^1.0"
     },
@@ -15,9 +15,9 @@
     },
     "authors": [
         {
-            "name": "Clark Winkelmann",
-            "email": "clark.winkelmann@gmail.com",
-            "homepage": "https://clarkwinkelmann.com/",
+            "name": "Convo",
+            "email": "daniel@overview.co.il",
+            "homepage": "https://flarum.org",
             "role": "Developer"
         }
     ],
