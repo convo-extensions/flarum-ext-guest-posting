@@ -32,4 +32,10 @@ All strings in this extension can be translated through the [Linguist](https://d
 
 # [Try it yourself! (Demo)](https://convo-extensions-demo.convo.co.il/d/1-anonymous-guest-posting)
 
-First 7 days are free, no credit card required. If you've purchased the extension and encountered an error, please reach out at support@convo.co.il
+Once you've purchased the extensions, run the following command to install:
+
+```
+composer require convo-extensions/flarum-ext-guest-posting
+```
+
+If you need any help, shoot us an email at support@convo.co.il
