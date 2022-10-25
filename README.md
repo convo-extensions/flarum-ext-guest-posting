@@ -32,7 +32,7 @@ All strings in this extension can be translated through the [Linguist](https://d
 
 # [Try it yourself! (Demo)](https://convo-extensions-demo.convo.co.il/d/1-anonymous-guest-posting)
 
-Once you've purchased the extensions, run the following command to install:
+Once you've purchased the extension, run the following command to install:
 
 ```
 composer require convo-extensions/flarum-ext-guest-posting
