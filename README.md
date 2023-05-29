@@ -38,4 +38,4 @@ Once you've purchased the extension, run the following command to install:
 composer require convo-extensions/flarum-ext-guest-posting
 ```
 
-If you need any help, shoot us an email at support@convo.co.il
+If you need any help, shoot us an email at flarum@overview.co.il
