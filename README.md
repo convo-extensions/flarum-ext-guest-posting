@@ -3,8 +3,13 @@
 
 ![Giphy - hide GIF](https://media2.giphy.com/media/COYGe9rZvfiaQ/giphy.gif?cid=7175f6ac2w2ple7hor4yiac55sbx3tcjdxxe0swvvudgh31p&rid=giphy.gif&ct=g)
 
+
 # What
-The extension lets unregistered users comment on discussion, create new discussions, and vote on polls. It is fully compatible with the latest version of Flarum and has been tested with dozens of extensions and large-scale communities. The extension was developed by @clarkwinkelmann, a core developer of Flarum.
+The extension lets unregistered users comment on discussion, create new discussions, and vote on polls. It is fully compatible with the latest version of Flarum and has been tested with dozens of extensions and large-scale communities. The extension was developed by @clarkwinkelmann, a core developer of Flarum. Run the following command to install:
+
+```
+composer require convo-extensions/flarum-ext-guest-posting
+```
 
 
 # How
@@ -29,13 +34,3 @@ Once the user has made an anonymous post, he'd be shown a message on the homepag
 ### 🌎 Translatable
 
 All strings in this extension can be translated through the [Linguist](https://discuss.flarum.org/d/7026-linguist-customize-translations-with-ease) extension
-
-# [Try it yourself! (Demo)](https://convo-extensions-demo.convo.co.il/d/1-anonymous-guest-posting)
-
-Once you've purchased the extension, run the following command to install:
-
-```
-composer require convo-extensions/flarum-ext-guest-posting
-```
-
-If you need any help, shoot us an email at flarum@overview.co.il
