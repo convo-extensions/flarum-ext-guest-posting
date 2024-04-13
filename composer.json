@@ -2,10 +2,10 @@
     "name": "convo-extensions/flarum-ext-guest-posting",
     "description": "Anonymous, permission-based guest posting extension for Flarum",
     "keywords": [
-        "flarum"
+        "flarum", "guest"
     ],
     "type": "flarum-extension",
-    "license": "proprietary",
+    "license": "GPL-3.0-only",
     "require": {
         "flarum/core": "^1.0"
     },
@@ -17,7 +17,6 @@
         {
             "name": "convo-extensions",
             "email": "daniel@overview.co.il",
-            "homepage": "https://flarum.org",
             "role": "Developer"
         }
     ],
